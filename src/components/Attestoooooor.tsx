@@ -27,7 +27,7 @@ export function Attestooooooor() {
   /**
    * @see https://reactjs.org/docs/hooks-state.html
    */
-  const [value, setValue] = useState("Hello world");
+  const [value, setValue] = useState("Exp");
 
   /**
    * The key of the attestation

@@ -1,9 +1,8 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
-
 import { Attestooooooor } from "./components";
 
-export function App() {
+export function Attest() {
   /**
    * Wagmi hook for getting account information
    * @see https://wagmi.sh/docs/hooks/useAccount
