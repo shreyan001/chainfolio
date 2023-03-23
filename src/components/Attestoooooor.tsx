@@ -85,7 +85,7 @@ export function Attestooooooor() {
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <button disabled={!write || isLoading} onClick={() => write?.()}>
+      <button className="btn1" disabled={!write || isLoading} onClick={() => write?.()}>
         Attest
       </button>
       {isLoading && <ProcessingMessage hash={data?.hash} />}

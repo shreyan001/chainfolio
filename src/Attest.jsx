@@ -10,12 +10,14 @@ export function Attest() {
   const { isConnected } = useAccount();
 
   return (
-    <>
-      <h1>OP Starter Project</h1>
-
-      {/** @see https://www.rainbowkit.com/docs/connect-button */}
-      <ConnectButton />
-
+    <div className="container">
+   <nav className="navbar">
+        <div className="logo">
+          <img src="/logo.png" alt="Crossfolio logo" />
+          <h1>Crossfolio</h1>
+        </div>
+        <ConnectButton/>
+      </nav>
       {isConnected && (
         <>
           <hr />
@@ -23,6 +25,6 @@ export function Attest() {
           <hr />
         </>
       )}
-    </>
+    </div>
   );
 }

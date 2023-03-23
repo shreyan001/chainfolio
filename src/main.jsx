@@ -5,6 +5,7 @@ import * as ReactDOM from "react-dom/client";
 import { WagmiConfig } from "wagmi";
 import App from './App';
 import { chains, client } from "./wagmi";
+import './App.css';
 
 /**
  * Root providers and initialization of app
