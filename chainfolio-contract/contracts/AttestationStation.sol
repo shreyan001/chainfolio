@@ -33,7 +33,7 @@ contract chainfolio {
         attestStation = IAttestationStation(attestStationAddress);
     }
 
-    function setAttestation(
+    function _setAttestation(
         address _about,
         bytes32 _key,
         bytes memory _val
@@ -46,5 +46,21 @@ contract chainfolio {
             val: _val
         });
         attestStation.attest(attestations);
+    }
+
+    function setSingleData(
+        address _about,
+        bytes32 _key,
+        bytes memory _val
+    ) external {
+        _setAttestation(address(this), _key, _val);
+    }
+
+    function setData(
+        IAttestationStation.AttestationData[] memory _data
+    ) external {
+        for (uint256 i = 0; i < _data.length; i++) {
+            _setAttestation(address(this), _data[i].key, _data[i].val);
+        }
     }
 }
