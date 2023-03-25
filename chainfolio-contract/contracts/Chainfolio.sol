@@ -18,7 +18,7 @@ interface IAttestationStation {
     function attest(AttestationData[] memory _attestations) external;
 }
 
-contract chainfolio {
+contract Chainfolio {
     IAttestationStation attestStation;
     address attestStationAddress;
     event AttestationCreated(
