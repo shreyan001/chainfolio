@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@eth-optimism/contracts-bedrock": "^0.13.1",
     "dotenv": "^16.0.3",
     "hardhat": "^2.11.1"
   },
