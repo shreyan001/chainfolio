@@ -19,6 +19,12 @@ interface IAttestationStation {
 }
 
 contract Chainfolio {
+    struct IAttestationData {
+        address about;
+        string key;
+        string val;
+    }
+
     IAttestationStation attestStation;
     address attestStationAddress;
     event AttestationCreated(
@@ -57,12 +63,38 @@ contract Chainfolio {
         _isTxnDone = true;
     }
 
-    function setData(
-        IAttestationStation.AttestationData[] memory _data
-    ) external returns (bool _isTxnDone) {
+    function setData(IAttestationData[] memory _data)
+        external
+        returns (bool _isTxnDone)
+    {
         for (uint256 i = 0; i < _data.length; i++) {
-            _setAttestation(address(this), _data[i].key, _data[i].val);
+            _setAttestation(
+                address(this),
+                stringToBytes32(_data[i].key),
+                stringToBytes(_data[i].val)
+            );
         }
+        
+
+
+
         _isTxnDone = true;
+    }
+
+    function stringToBytes32(string memory str) public pure returns (bytes32) {
+        bytes32 result;
+        assembly {
+            result := mload(add(str, 32))
+        }
+        return result;
+    }
+
+    function stringToBytes(string memory str)
+        public
+        pure
+        returns (bytes memory)
+    {
+        bytes memory result = bytes(str);
+        return result;
     }
 }

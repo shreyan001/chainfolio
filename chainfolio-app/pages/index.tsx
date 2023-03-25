@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { BrowserProvider, ethers, getDefaultProvider, parseUnits, Signer } from "ethers";
 import { Provider, useState } from 'react';
 import { WalletConnect } from '@/components/Wallet';
+import { ChainfolioAttestation } from '@/components/Chainfolio';
 declare var window: any
 
 
@@ -24,7 +25,9 @@ export default function Home() {
 
             {walletAddress}
 
-            
+
+
+            <ChainfolioAttestation signer={signer} />
 
 
 
