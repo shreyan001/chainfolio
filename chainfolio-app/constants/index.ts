@@ -1,4 +1,4 @@
-export const CHAINFOLIO_CONTRACT_ADDRESS: string = "0xb79d5fc1A56eD63F7C33817857eF38466126cD2D" // optimisim testnet
+export const CHAINFOLIO_CONTRACT_ADDRESS: string = "0x83eA0a0F3ee64c7dde080954a3470375b3caE0bC" // optimisim testnet
 
 
 export const CHAINFOLIO_CONTRACT_ABI = [
@@ -48,17 +48,17 @@ export const CHAINFOLIO_CONTRACT_ABI = [
                         "type": "address"
                     },
                     {
-                        "internalType": "bytes32",
+                        "internalType": "string",
                         "name": "key",
-                        "type": "bytes32"
+                        "type": "string"
                     },
                     {
-                        "internalType": "bytes",
+                        "internalType": "string",
                         "name": "val",
-                        "type": "bytes"
+                        "type": "string"
                     }
                 ],
-                "internalType": "struct IAttestationStation.AttestationData[]",
+                "internalType": "struct Chainfolio.IAttestationData[]",
                 "name": "_data",
                 "type": "tuple[]"
             }
@@ -101,6 +101,44 @@ export const CHAINFOLIO_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "str",
+                "type": "string"
+            }
+        ],
+        "name": "stringToBytes",
+        "outputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "str",
+                "type": "string"
+            }
+        ],
+        "name": "stringToBytes32",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "pure",
         "type": "function"
     }
 ]

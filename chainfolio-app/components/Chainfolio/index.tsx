@@ -18,22 +18,11 @@ export const ChainfolioAttestation: React.FC<IChainfolioAttestation> = ({ signer
     async function testData() {
 
 
-        // 1. convert data to bytes
-        let finaldata: IWorkList2[] = [];
-        for (let i = 0; i < workList.length; i++) {
-            let temp: IWorkList = workList[i];
-
-            let xn: IWorkList2 = { about: temp.about, key: encodeBytes32String(temp.key), val: encodeBytes32String(temp.val) };
-            finaldata.push(xn)
-        }
-
-
-        // 2. call smart contract
         try {
             console.log(signer)
             const contract = new Contract(CHAINFOLIO_CONTRACT_ADDRESS, CHAINFOLIO_CONTRACT_ABI, signer);
             console.log(contract)
-            let txn = await contract.setData(finaldata)
+            let txn = await contract.setData(workList)
             txn = await txn.wait();
             console.log('data added show txn data in smart contract')
             alert('TXN DONE CHECK LOG')
@@ -63,37 +52,37 @@ interface IWorkList {
 
 export const workList: IWorkList[] = [
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 1",
         val: "Contributed to project X",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 2",
         val: "Developed feature Y",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 3",
         val: "Designed UI for project Z",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 4",
         val: "Mentored new team members",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 5",
         val: "Organized community events",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 5",
         val: "Organized community events",
     },
     {
-        about: "xx",
+        about: "0x6B4c696B623FA9A2A6D5b6E9101Ef19CD973bc3C",
         key: "Example Org 5",
         val: "Organized community events",
     },
@@ -101,11 +90,11 @@ export const workList: IWorkList[] = [
 
 
 
-interface IWorkList2 {
-    about: string,
-    key: any,
-    val: any
-}
+// interface IWorkList2 {
+//     about: string,
+//     key: any,
+//     val: any
+// }
 
 // about about;
 // bytes32 key;
@@ -113,3 +102,14 @@ interface IWorkList2 {
 
 // hexlify
 // const myBytes32: ethers.BytesLike = ethers.hexlify("xsdccsdc");
+        // 1. convert data to bytes
+        // let finaldata: IWorkList2[] = [];
+        // for (let i = 0; i < workList.length; i++) {
+        //     let temp: IWorkList = workList[i];
+
+        //     let xn: IWorkList2 = { about: temp.about, key: encodeBytes32String(temp.key), val: encodeBytes32String(temp.val) };
+        //     finaldata.push(xn)
+        // }
+
+
+        // // 2. call smart contract
