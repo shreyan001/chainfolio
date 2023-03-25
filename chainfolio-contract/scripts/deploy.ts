@@ -2,13 +2,13 @@ import { ethers } from "hardhat";
 
 async function main() {
 
-  const AttestationStation = await ethers.getContractFactory("AttestationStation");
-  const attestationStation = await AttestationStation.deploy();
+  const Chainfolio = await ethers.getContractFactory("Chainfolio");
+  const chainFolio = await Chainfolio.deploy();
 
-  await attestationStation.deployed();
+  await chainFolio.deployed();
 
   console.log(
-    `AttestationStation deployed to ${attestationStation.address}`
+    `AttestationStation deployed to ${chainFolio.address}`
   );
 }
 
