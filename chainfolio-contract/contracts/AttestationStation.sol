@@ -52,15 +52,17 @@ contract chainfolio {
         address _about,
         bytes32 _key,
         bytes memory _val
-    ) external {
+    ) external returns (bool _isTxnDone) {
         _setAttestation(address(this), _key, _val);
+        _isTxnDone = true;
     }
 
     function setData(
         IAttestationStation.AttestationData[] memory _data
-    ) external {
+    ) external returns (bool _isTxnDone) {
         for (uint256 i = 0; i < _data.length; i++) {
             _setAttestation(address(this), _data[i].key, _data[i].val);
         }
+        _isTxnDone = true;
     }
 }
