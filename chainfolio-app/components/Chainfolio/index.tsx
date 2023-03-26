@@ -1,11 +1,10 @@
 import { CHAINFOLIO_CONTRACT_ABI, CHAINFOLIO_CONTRACT_ADDRESS } from "@/constants";
-import { stringifyAttestationBytes, encodeRawKey } from "@eth-opti mism/atst";
-import { BrowserProvider, Contract, encodeBytes32String, ethers, getDefaultProvider, hexlify, isBytesLike, parseUnits, Signer } from "ethers";
+import { Contract, ethers, getDefaultProvider, Signer } from "ethers";
 
 declare var window: any
 
 interface IChainfolioAttestation {
-    signer: Signer
+    signer: any
 }
 
 

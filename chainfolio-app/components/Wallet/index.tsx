@@ -1,4 +1,4 @@
-import { BrowserProvider, ethers, getDefaultProvider, parseUnits, Signer } from "ethers";
+import {BrowserProvider, ethers, getDefaultProvider, Signer } from "ethers";
 declare var window: any
 
 
