@@ -18,6 +18,7 @@ export function Attest() {
         </div>
         <ConnectButton/>
       </nav>
+      
       {isConnected && (
         <>
           <hr />

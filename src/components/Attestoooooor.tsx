@@ -6,6 +6,9 @@ import {
   encodeRawKey,
 } from "@eth-optimism/atst";
 
+
+
+
 /**
  * These react hooks are generated with the wagmi cli via `wagmi generate`
  * @see ROOT/wagmi.config.ts
@@ -20,6 +23,10 @@ import {
  * An example component using the attestation station
  */
 export function Attestooooooor() {
+
+
+  
+  
   /**
    * @see https://wagmi.sh/docs/hooks/useAccount
    */
@@ -33,19 +40,38 @@ export function Attestooooooor() {
    * The key of the attestation
    * @see https://www.npmjs.com/package/@eth-optimism/atst
    */
-  const key = encodeRawKey("hello-world");
+
   /**
    * Value of the attestation
    * @see https://www.npmjs.com/package/@eth-optimism/atst
    */
-  const newAttestation = stringifyAttestationBytes(value);
+  
+  let args = [];
+for (let i = 0; i < workList.length; i++) {
+  const orgName = workList[i].orgName;
+  const contribution = workList[i].contribution;
+  const newAttestation = stringifyAttestationBytes(contribution);
+  const key = encodeRawKey(orgName);
+  args.push([address!,key!, newAttestation!]);
+}
 
   /**
    * Automatically generated hook to prepare the transaction
    * @see https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite
    */
+    
+  
+  let _keys = [];
+  let _values=[];
+  for(let  i = 0 ; i < workList.length ; i++ ){
+    _keys.push(encodeRawKey(workList[i].orgName));
+    _values.push(stringifyAttestationBytes(workList[i].contribution));
+  }
+
+
   const { config } = usePrepareAttestationStationAttest({
-    args: [address!, key, newAttestation],
+
+   args,
   });
 
   /**
@@ -108,3 +134,35 @@ function ProcessingMessage({ hash }: { hash?: `0x${string}` }) {
     </span>
   );
 }
+
+
+export const workList = [
+  {
+    orgName: "Example Org 1",
+    contribution: "Contributed to project X",
+  },
+  {
+    orgName: "Example Org 2",
+    contribution: "Developed feature Y",
+  },
+  {
+    orgName: "Example Org 3",
+    contribution: "Designed UI for project Z",
+  },
+  {
+    orgName: "Example Org 4",
+    contribution: "Mentored new team members",
+  },
+  {
+    orgName: "Example Org 5",
+    contribution: "Organized community events",
+  },
+  {
+      orgName: "Example Org 5",
+      contribution: "Organized community events",
+    },
+    {
+      orgName: "Example Org 5",
+      contribution: "Organized community events",
+    },
+];
